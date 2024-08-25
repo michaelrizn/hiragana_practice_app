@@ -16,7 +16,7 @@ function initializeApp() {
     }
 
     document.getElementById('start-button').addEventListener('click', startGame);
-    document.getElementById('reload-button').addEventListener('click', reloadApp);  // Изменено здесь
+    document.getElementById('reload-button').addEventListener('click', reloadApp);
     document.getElementById('alphabet-button').addEventListener('click', showAlphabet);
     document.getElementById('alphabet-button-game').addEventListener('click', showAlphabet);
     document.getElementById('alphabet-popup').addEventListener('click', hideAlphabet);
@@ -47,7 +47,7 @@ function nextSymbol() {
     options = shuffleArray(options);
 
     let optionsHtml = options.map(option =>
-        `<div class="option" onclick="checkAnswer('${option.english}')">${option.english} (${option.russian})</div>`
+        `<div class="option" onclick="checkAnswer('${option.english}', this)">${option.english} (${option.russian})</div>`
     ).join('');
 
     document.getElementById('options').innerHTML = optionsHtml;
@@ -72,7 +72,8 @@ function shuffleArray(array) {
     return array;
 }
 
-function checkAnswer(answer) {
+function checkAnswer(answer, element) {
+    disableButtons(); // Отключение кнопок после нажатия
     let resultElement = document.getElementById('result');
     if (answer === currentSymbol.english) {
         resultElement.textContent = 'Правильно';
@@ -82,8 +83,28 @@ function checkAnswer(answer) {
     resultElement.classList.add('show');
     setTimeout(() => {
         resultElement.classList.remove('show');
-        setTimeout(nextSymbol, 300);
+        setTimeout(() => {
+            nextSymbol();
+            enableButtons(); // Включение кнопок после обновления
+        }, 300);
     }, 1700);
+}
+
+// Функции для отключения и включения кнопок
+function disableButtons() {
+    const buttons = document.querySelectorAll('.option');
+    buttons.forEach(button => {
+        button.style.pointerEvents = 'none';
+        button.style.opacity = '0.5';  // Визуальное указание на то, что кнопка неактивна
+    });
+}
+
+function enableButtons() {
+    const buttons = document.querySelectorAll('.option');
+    buttons.forEach(button => {
+        button.style.pointerEvents = 'auto';
+        button.style.opacity = '1';  // Возвращение кнопок в активное состояние
+    });
 }
 
 function showAlphabet() {
@@ -100,7 +121,6 @@ function hideAlphabet() {
     document.getElementById('alphabet-popup').classList.add('hidden');
 }
 
-// Добавлена функция для перезагрузки
 function reloadApp() {
     console.log('Reloading app');
     document.getElementById('main-page').classList.remove('hidden');
