@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хирагана Учебник</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="hiragana.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+<div id="loading">Загрузка...</div>
+<div id="error" class="hidden">Произошла ошибка. Пожалуйста, обновите страницу.</div>
+<div id="main-page" class="page hidden">
+    <div id="alphabet-button" class="top-right">あ</div>
+    <div class="center">
+        <h1 id="main-symbol">あ</h1>
+        <button id="start-button">Старт</button>
+    </div>
+</div>
+<div id="game-page" class="page hidden">
+    <div id="reload-button" class="top-left">↻</div> <!-- Заменена стрелка назад на кнопку перезагрузки -->
+    <div id="alphabet-button-game" class="top-right">あ</div>
+    <div class="center">
+        <div id="result-container">
+            <p id="result"></p>
+        </div>
+        <h2 id="symbol"></h2>
+        <div id="options"></div>
+    </div>
+</div>
+<div id="alphabet-popup" class="popup hidden">
+    <div id="alphabet-content"></div>
+</div>
+</body>
+</html>
