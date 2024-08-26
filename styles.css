@@ -18,32 +18,39 @@ body, html {
     display: none !important;
 }
 
-.top-left, .top-right {
+.top-left, .top-right, .top-right-below {
     position: absolute;
-    top: 20px;
     font-size: 24px;
     cursor: pointer;
     background-color: white;
     color: black;
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
-}
-
-.top-left:active, .top-right:active {
-    transform: scale(0.95);
-}
-
-.top-left {
-    left: 20px;
+    width: 40px;
+    height: 40px;
 }
 
 .top-right {
+    top: 20px;
     right: 20px;
+}
+
+.top-right-below {
+    top: 70px; /* Располагаем ниже кнопки あ */
+    right: 20px;
+    font-size: 18px; /* Размер текста для отображения числа общих ответов */
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.top-left:active, .top-right:active, .top-right-below:active {
+    transform: scale(0.95);
 }
 
 .center {
@@ -64,7 +71,6 @@ h1#main-symbol, h2#symbol {
     justify-content: center;
 }
 
-/* Обновленный стиль для всех кнопок */
 button, .option {
     font-size: 18px;
     padding: 10px 20px;
@@ -74,12 +80,12 @@ button, .option {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    outline: none; /* Убирает обводку при фокусе */
-    display: inline-block;
-    width: calc(100% - 40px);
-    max-width: 200px;
+    outline: none;
     text-align: center;
     margin: 10px 0;
+    width: 100%;
+    max-width: 200px;
+    box-sizing: border-box;
 }
 
 button:active, .option:active {
@@ -151,4 +157,23 @@ button:active, .option:active {
 
 #error {
     color: red;
+}
+
+#counter-popup {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    z-index: 1001;
+}
+
+#counter-popup.show {
+    display: block;
+}
+
+#counter-popup-content {
+    text-align: center;
+    font-size: 24px;
 }

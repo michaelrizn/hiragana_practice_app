@@ -1,4 +1,7 @@
 let currentSymbol;
+let symbolQueue = []; // Очередь символов для текущего цикла
+let correctCount = 0;
+let incorrectCount = 0;
 
 function initializeApp() {
     console.log('Initializing app...');
@@ -19,7 +22,9 @@ function initializeApp() {
     document.getElementById('reload-button').addEventListener('click', reloadApp);
     document.getElementById('alphabet-button').addEventListener('click', showAlphabet);
     document.getElementById('alphabet-button-game').addEventListener('click', showAlphabet);
+    document.getElementById('total-count-display').addEventListener('click', showCounterPopup); // Добавляем обработчик для отображения статистики
     document.getElementById('alphabet-popup').addEventListener('click', hideAlphabet);
+    document.getElementById('counter-popup').addEventListener('click', closeCounterPopup); // Закрытие статистики по клику
 
     document.getElementById('loading').classList.add('hidden');
 }
@@ -34,11 +39,19 @@ function startGame() {
     console.log('Starting game');
     document.getElementById('main-page').classList.add('hidden');
     document.getElementById('game-page').classList.remove('hidden');
+    initSymbolQueue();
     nextSymbol();
 }
 
+function initSymbolQueue() {
+    symbolQueue = shuffleArray([...hiragana]); // Создаем новый цикл, перемешивая символы
+}
+
 function nextSymbol() {
-    currentSymbol = hiragana[Math.floor(Math.random() * hiragana.length)];
+    if (symbolQueue.length === 0) {
+        initSymbolQueue(); // Если символы закончились, инициализируем новый цикл
+    }
+    currentSymbol = symbolQueue.shift(); // Берем первый символ из очереди
     document.getElementById('symbol').textContent = currentSymbol.symbol;
     document.getElementById('result').textContent = '';
     document.getElementById('result').classList.remove('show');
@@ -77,9 +90,12 @@ function checkAnswer(answer, element) {
     let resultElement = document.getElementById('result');
     if (answer === currentSymbol.english) {
         resultElement.textContent = 'Правильно';
+        correctCount++;
     } else {
         resultElement.textContent = 'Неправильно';
+        incorrectCount++;
     }
+    updateCounter(); // Обновление счетчика после каждого ответа
     resultElement.classList.add('show');
     setTimeout(() => {
         resultElement.classList.remove('show');
@@ -90,7 +106,6 @@ function checkAnswer(answer, element) {
     }, 1700);
 }
 
-// Функции для отключения и включения кнопок
 function disableButtons() {
     const buttons = document.querySelectorAll('.option');
     buttons.forEach(button => {
@@ -128,6 +143,35 @@ function reloadApp() {
     document.getElementById('symbol').textContent = '';  // Очистка символа
     document.getElementById('result').textContent = '';  // Очистка результата
     document.getElementById('options').innerHTML = '';  // Очистка опций
+    correctCount = 0;
+    incorrectCount = 0;
+    updateCounter(); // Сброс счетчика
+}
+
+// Обновление счетчика
+function updateCounter() {
+    let totalCount = correctCount + incorrectCount;
+    let correctPercent = totalCount ? ((correctCount / totalCount) * 100).toFixed(1) : 0;
+    let incorrectPercent = totalCount ? ((incorrectCount / totalCount) * 100).toFixed(1) : 0;
+
+    document.getElementById('correct-count').textContent = correctCount;
+    document.getElementById('incorrect-count').textContent = incorrectCount;
+    document.getElementById('total-count').textContent = totalCount;
+    document.getElementById('total-count-display').textContent = totalCount; // Обновляем отображение общего числа ответов
+    document.getElementById('correct-percent').textContent = correctPercent;
+    document.getElementById('incorrect-percent').textContent = incorrectPercent;
+}
+
+// Показ всплывающего окна с текущими данными счетчика
+function showCounterPopup() {
+    document.getElementById('counter-popup').classList.remove('hidden');
+    document.getElementById('counter-popup').classList.add('show');
+}
+
+// Закрытие всплывающего окна счетчика
+function closeCounterPopup() {
+    document.getElementById('counter-popup').classList.remove('show');
+    document.getElementById('counter-popup').classList.add('hidden');
 }
 
 // Вызов функции initializeApp после загрузки страницы

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хирагана Учебник</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"> <!-- Обратите внимание на путь -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="hiragana.js"></script>
     <script src="script.js"></script>
@@ -23,6 +23,7 @@
 <div id="game-page" class="page hidden">
     <div id="reload-button" class="top-left">↻</div>
     <div id="alphabet-button-game" class="top-right">あ</div>
+    <div id="total-count-display" class="top-right-below">0</div> <!-- Отображение числа общих ответов -->
     <div class="center">
         <div id="result-container">
             <p id="result"></p>
@@ -33,6 +34,14 @@
 </div>
 <div id="alphabet-popup" class="popup hidden">
     <div id="alphabet-content"></div>
+</div>
+<!-- Всплывающее окно для счётчика -->
+<div id="counter-popup" class="popup hidden">
+    <div id="counter-popup-content">
+        <p>Всего ответов: <span id="total-count">0</span></p>
+        <p>Правильные ответы: <span id="correct-count">0</span> (<span id="correct-percent">0</span>%)</p>
+        <p>Неправильные ответы: <span id="incorrect-count">0</span> (<span id="incorrect-percent">0</span>%)</p>
+    </div>
 </div>
 </body>
 </html>
