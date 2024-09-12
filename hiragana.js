@@ -40,7 +40,7 @@ const hiragana = [
   {"symbol": "ね", "russian": "не", "english": "ne"},
   {"symbol": "の", "russian": "но", "english": "no"},
   {"symbol": "は", "russian": "ха", "english": "ha"},
-  {"symbol": "ば", "russian": "ба", "english": "ba"}/*,
+  {"symbol": "ば", "russian": "ба", "english": "ba"},
   {"symbol": "ひ", "russian": "хи", "english": "hi"},
   {"symbol": "ふ", "russian": "фу", "english": "fu"},
   {"symbol": "へ", "russian": "хе", "english": "he"},
@@ -69,5 +69,5 @@ const hiragana = [
   {"symbol": "ぴ", "russian": "пи", "english": "pi"},
   {"symbol": "ぷ", "russian": "пу", "english": "pu"},
   {"symbol": "ぺ", "russian": "пэ", "english": "pe"},
-  {"symbol": "ぽ", "russian": "по", "english": "po"}*/
+  {"symbol": "ぽ", "russian": "по", "english": "po"}
 ];
