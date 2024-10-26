@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -18,7 +19,36 @@ body, html {
     display: none !important;
 }
 
-.top-left, .top-right, .top-right-below {
+#alphabet-buttons,
+#alphabet-buttons-game {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.alphabet-button {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.alphabet-button:active {
+    transform: scale(0.95);
+}
+
+.top-left,
+.top-right-below {
     position: absolute;
     font-size: 24px;
     cursor: pointer;
@@ -33,15 +63,10 @@ body, html {
     height: 40px;
 }
 
-.top-right {
-    top: 20px;
-    right: 20px;
-}
-
 .top-right-below {
-    top: 70px; /* Располагаем ниже кнопки あ */
+    top: 130px;
     right: 20px;
-    font-size: 18px; /* Размер текста для отображения числа общих ответов */
+    font-size: 18px;
 }
 
 .top-left {
@@ -49,7 +74,8 @@ body, html {
     left: 20px;
 }
 
-.top-left:active, .top-right:active, .top-right-below:active {
+.top-left:active,
+.top-right-below:active {
     transform: scale(0.95);
 }
 
@@ -62,7 +88,8 @@ body, html {
     padding: 20px 0;
 }
 
-h1#main-symbol, h2#symbol {
+h1#main-symbol,
+h2#symbol {
     font-size: 180px;
     margin: 0;
     flex-grow: 1;
@@ -71,7 +98,8 @@ h1#main-symbol, h2#symbol {
     justify-content: center;
 }
 
-button, .option {
+button,
+.option {
     font-size: 18px;
     padding: 10px 20px;
     background-color: black;
@@ -88,7 +116,8 @@ button, .option {
     box-sizing: border-box;
 }
 
-button:active, .option:active {
+button:active,
+.option:active {
     transform: scale(0.95);
     background-color: #333;
 }
@@ -121,7 +150,7 @@ button:active, .option:active {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,7 +169,8 @@ button:active, .option:active {
     gap: 10px;
 }
 
-#loading, #error {
+#loading,
+#error {
     position: fixed;
     top: 0;
     left: 0;
