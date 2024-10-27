@@ -23,7 +23,7 @@ html {
 #alphabet-buttons-game {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     position: absolute;
     top: 20px;
     right: 20px;
