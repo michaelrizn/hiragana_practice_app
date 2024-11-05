@@ -1,4 +1,3 @@
-// script.js
 let currentSymbol;
 let symbolQueue = [];
 let correctCount = 0;
@@ -20,7 +19,6 @@ function initializeApp() {
     showMainPage();
   }
 
-  // Обработчики для кнопок справки на главной странице
   document
     .getElementById("hiragana-help-button")
     .addEventListener("click", () => showAlphabet(hiragana));
@@ -29,9 +27,8 @@ function initializeApp() {
     .addEventListener("click", () => showAlphabet(katakana));
   document
     .getElementById("hiraganaandkatakana-help-button")
-    .addEventListener("click", () => showAlphabet(hiraganaAndKatakana)); // Обработчик для новой справки
+    .addEventListener("click", () => showAlphabet(hiraganaAndKatakana));
 
-  // Обработчики для кнопок справки на странице игры
   document
     .getElementById("hiragana-button-game")
     .addEventListener("click", () => showAlphabet(hiragana));
@@ -40,7 +37,7 @@ function initializeApp() {
     .addEventListener("click", () => showAlphabet(katakana));
   document
     .getElementById("hiraganaandkatakana-button-game")
-    .addEventListener("click", () => showAlphabet(hiraganaAndKatakana)); // Обработчик для новой справки
+    .addEventListener("click", () => showAlphabet(hiraganaAndKatakana));
 
   document.getElementById("reload-button").addEventListener("click", reloadApp);
   document
@@ -80,7 +77,18 @@ function nextSymbol() {
     initSymbolQueue();
   }
   currentSymbol = symbolQueue.shift();
-  document.getElementById("symbol").textContent = currentSymbol.symbol;
+
+  // Разделяем символы хираганы и катаканы по тире и пробелам
+  const symbolParts = currentSymbol.symbol
+    .split(" - ")
+    .map((part) => part.trim());
+
+  // Формируем многострочный HTML с использованием <br>
+  const symbolHtml = symbolParts.join("<br>");
+
+  // Устанавливаем HTML-содержимое вместо текста
+  document.getElementById("symbol").innerHTML = symbolHtml;
+
   document.getElementById("result").textContent = "";
   document.getElementById("result").classList.remove("show");
 
