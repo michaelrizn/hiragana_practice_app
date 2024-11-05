@@ -1,0 +1,153 @@
+// hiraganaandkatakana.js
+const hiraganaAndKatakana = [
+  { symbol: "あ - ア", russian: "а", english: "a" },
+  { symbol: "い - イ", russian: "и", english: "i" },
+  { symbol: "う - ウ", russian: "у", english: "u" },
+  { symbol: "え - エ", russian: "э", english: "e" },
+  { symbol: "お - オ", russian: "о", english: "o" },
+
+  { symbol: "か - カ", russian: "ка", english: "ka" },
+  { symbol: "が - ガ", russian: "га", english: "ga" },
+  { symbol: "き - キ", russian: "ки", english: "ki" },
+  { symbol: "ぎ - ギ", russian: "ги", english: "gi" },
+  { symbol: "く - ク", russian: "ку", english: "ku" },
+  { symbol: "ぐ - グ", russian: "гу", english: "gu" },
+  { symbol: "け - ケ", russian: "кэ", english: "ke" },
+  { symbol: "げ - ゲ", russian: "гэ", english: "ge" },
+  { symbol: "こ - コ", russian: "ко", english: "ko" },
+  { symbol: "ご - ゴ", russian: "го", english: "go" },
+
+  { symbol: "さ - サ", russian: "са", english: "sa" },
+  { symbol: "ざ - ザ", russian: "дза", english: "za" },
+  { symbol: "し - シ", russian: "си", english: "shi" },
+  { symbol: "じ - ジ", russian: "дзи", english: "ji" },
+  { symbol: "す - ス", russian: "су", english: "su" },
+  { symbol: "ず - ズ", russian: "дзу", english: "zu" },
+  { symbol: "せ - セ", russian: "сэ", english: "se" },
+  { symbol: "ぜ - ゼ", russian: "дзэ", english: "ze" },
+  { symbol: "そ - ソ", russian: "со", english: "so" },
+  { symbol: "ぞ - ゾ", russian: "дзо", english: "zo" },
+
+  { symbol: "た - タ", russian: "та", english: "ta" },
+  { symbol: "だ - ダ", russian: "да", english: "da" },
+  { symbol: "ち - チ", russian: "ти", english: "chi" },
+  { symbol: "ぢ - ヂ", russian: "дзи", english: "ji" },
+  { symbol: "つ - ツ", russian: "цу", english: "tsu" },
+  { symbol: "づ - ヅ", russian: "дзу", english: "zu" },
+  { symbol: "て - テ", russian: "тэ", english: "te" },
+  { symbol: "で - デ", russian: "дэ", english: "de" },
+  { symbol: "と - ト", russian: "то", english: "to" },
+  { symbol: "ど - ド", russian: "до", english: "do" },
+
+  { symbol: "な - ナ", russian: "на", english: "na" },
+  { symbol: "に - ニ", russian: "ни", english: "ni" },
+  { symbol: "ぬ - ヌ", russian: "ну", english: "nu" },
+  { symbol: "ね - ネ", russian: "не", english: "ne" },
+  { symbol: "の - ノ", russian: "но", english: "no" },
+
+  { symbol: "は - ハ", russian: "ха", english: "ha" },
+  { symbol: "ば - バ", russian: "ба", english: "ba" },
+  { symbol: "ぱ - パ", russian: "па", english: "pa" },
+  { symbol: "ひ - ヒ", russian: "хи", english: "hi" },
+  { symbol: "び - ビ", russian: "би", english: "bi" },
+  { symbol: "ぴ - ピ", russian: "пи", english: "pi" },
+  { symbol: "ふ - フ", russian: "фу", english: "fu" },
+  { symbol: "ぶ - ブ", russian: "бу", english: "bu" },
+  { symbol: "ぷ - プ", russian: "пу", english: "pu" },
+  { symbol: "へ - ヘ", russian: "хе", english: "he" },
+  { symbol: "べ - ベ", russian: "бэ", english: "be" },
+  { symbol: "ぺ - ペ", russian: "пэ", english: "pe" },
+  { symbol: "ほ - ホ", russian: "хо", english: "ho" },
+  { symbol: "ぼ - ボ", russian: "бо", english: "bo" },
+  { symbol: "ぽ - ポ", russian: "по", english: "po" },
+
+  { symbol: "ま - マ", russian: "ма", english: "ma" },
+  { symbol: "み - ミ", russian: "ми", english: "mi" },
+  { symbol: "む - ム", russian: "му", english: "mu" },
+  { symbol: "め - メ", russian: "ме", english: "me" },
+  { symbol: "も - モ", russian: "мо", english: "mo" },
+
+  { symbol: "や - ヤ", russian: "я", english: "ya" },
+  { symbol: "ゆ - ユ", russian: "ю", english: "yu" },
+  { symbol: "よ - ヨ", russian: "ё", english: "yo" },
+
+  { symbol: "ら - ラ", russian: "ра", english: "ra" },
+  { symbol: "り - リ", russian: "ри", english: "ri" },
+  { symbol: "る - ル", russian: "ру", english: "ru" },
+  { symbol: "れ - レ", russian: "ре", english: "re" },
+  { symbol: "ろ - ロ", russian: "ро", english: "ro" },
+
+  { symbol: "わ - ワ", russian: "ва", english: "wa" },
+  { symbol: "を - ヲ", russian: "во", english: "wo" },
+  { symbol: "ん - ン", russian: "н", english: "n" },
+
+  // Сочетания хираганы и катаканы
+  { symbol: "きゃ - キャ", russian: "кя", english: "kya" },
+  { symbol: "きゅ - キュ", russian: "кю", english: "kyu" },
+  { symbol: "きょ - キョ", russian: "кё", english: "kyo" },
+
+  { symbol: "しゃ - シャ", russian: "ся", english: "sha" },
+  { symbol: "しゅ - シュ", russian: "сю", english: "shu" },
+  { symbol: "しょ - ショ", russian: "сё", english: "sho" },
+
+  { symbol: "ちゃ - チャ", russian: "тя", english: "cha" },
+  { symbol: "ちゅ - チュ", russian: "тю", english: "chu" },
+  { symbol: "ちょ - チョ", russian: "тё", english: "cho" },
+
+  { symbol: "にゃ - ニャ", russian: "ня", english: "nya" },
+  { symbol: "にゅ - ニュ", russian: "ню", english: "nyu" },
+  { symbol: "にょ - ニョ", russian: "нё", english: "nyo" },
+
+  { symbol: "ひゃ - ヒャ", russian: "хя", english: "hya" },
+  { symbol: "ひゅ - ヒュ", russian: "хю", english: "hyu" },
+  { symbol: "ひょ - ヒョ", russian: "хё", english: "hyo" },
+
+  { symbol: "みゃ - ミャ", russian: "мя", english: "mya" },
+  { symbol: "みゅ - ミュ", russian: "мю", english: "myu" },
+  { symbol: "みょ - ミョ", russian: "мё", english: "myo" },
+
+  { symbol: "りゃ - リャ", russian: "ря", english: "rya" },
+  { symbol: "りゅ - リュ", russian: "рю", english: "ryu" },
+  { symbol: "りょ - リョ", russian: "рё", english: "ryo" },
+
+  { symbol: "ぎゃ - ギャ", russian: "гя", english: "gya" },
+  { symbol: "ぎゅ - ギュ", russian: "гю", english: "gyu" },
+  { symbol: "ぎょ - ギョ", russian: "гё", english: "gyo" },
+
+  { symbol: "じゃ - ジャ", russian: "дзя", english: "ja" },
+  { symbol: "じゅ - ジュ", russian: "дзю", english: "ju" },
+  { symbol: "じょ - ジョ", russian: "дзё", english: "jo" },
+
+  { symbol: "びゃ - ビャ", russian: "бя", english: "bya" },
+  { symbol: "びゅ - ビュ", russian: "бю", english: "byu" },
+  { symbol: "びょ - ビョ", russian: "бё", english: "byo" },
+
+  { symbol: "ぴゃ - ピャ", russian: "пя", english: "pya" },
+  { symbol: "ぴゅ - ピュ", russian: "пю", english: "pyu" },
+  { symbol: "ぴょ - ピョ", russian: "пё", english: "pyo" },
+
+  // Сдвоенные согласные (цыки) — хирагана и катакана
+  { symbol: "っか - ッカ", russian: "кка", english: "kka" },
+  { symbol: "っき - ッキ", russian: "кки", english: "kki" },
+  { symbol: "っく - ック", russian: "кку", english: "kku" },
+  { symbol: "っけ - ッケ", russian: "ккэ", english: "kke" },
+  { symbol: "っこ - ッコ", russian: "кко", english: "kko" },
+
+  { symbol: "っさ - ッサ", russian: "сса", english: "ssa" },
+  { symbol: "っし - ッシ", russian: "сси", english: "sshi" },
+  { symbol: "っす - ッス", russian: "ссу", english: "ssu" },
+  { symbol: "っせ - ッセ", russian: "ссэ", english: "sse" },
+  { symbol: "っそ - ッソ", russian: "ссо", english: "sso" },
+
+  { symbol: "った - ッタ", russian: "тта", english: "tta" },
+  { symbol: "っち - ッチ", russian: "тти", english: "tchi" },
+  { symbol: "っつ - ッツ", russian: "ттсу", english: "ttsu" },
+  { symbol: "って - ッテ", russian: "ттэ", english: "tte" },
+  { symbol: "っと - ット", russian: "тто", english: "tto" },
+
+  { symbol: "っぱ - ッパ", russian: "ппа", english: "ppa" },
+  { symbol: "っぴ - ッピ", russian: "ппи", english: "ppi" },
+  { symbol: "っぷ - ップ", russian: "ппу", english: "ppu" },
+  { symbol: "っぺ - ッペ", russian: "ппэ", english: "ppe" },
+  { symbol: "っぽ - ッポ", russian: "ппо", english: "ppo" },
+];

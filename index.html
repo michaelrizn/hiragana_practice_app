@@ -9,6 +9,8 @@
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <script src="hiragana.js"></script>
         <script src="katakana.js"></script>
+        <script src="hiraganaandkatakana.js"></script>
+        <!-- Новый скрипт -->
         <script src="script.js"></script>
     </head>
     <body>
@@ -21,11 +23,22 @@
             <div id="alphabet-buttons" class="top-right">
                 <div id="hiragana-help-button" class="alphabet-button">あ</div>
                 <div id="katakana-help-button" class="alphabet-button">カ</div>
+                <div
+                    id="hiraganaandkatakana-help-button"
+                    class="alphabet-button"
+                >
+                    二
+                </div>
+                <!-- Новый кружок -->
             </div>
             <div class="center">
                 <h1 id="main-symbol">あ</h1>
                 <button onclick="startGame(hiragana)">Хирагана</button>
                 <button onclick="startGame(katakana)">Катакана</button>
+                <button onclick="startGame(hiraganaAndKatakana)">
+                    Хирагана+Катакана
+                </button>
+                <!-- Новая кнопка -->
             </div>
         </div>
 
@@ -34,8 +47,21 @@
             <div id="alphabet-buttons-game" class="top-right">
                 <div id="hiragana-button-game" class="alphabet-button">あ</div>
                 <div id="katakana-button-game" class="alphabet-button">カ</div>
+                <div
+                    id="hiraganaandkatakana-button-game"
+                    class="alphabet-button"
+                >
+                    二
+                </div>
+                <!-- Новый кружок -->
+                <div
+                    id="total-count-display"
+                    class="alphabet-button stats-button"
+                >
+                    0
+                </div>
+                <!-- Перемещённый кружок статистики -->
             </div>
-            <div id="total-count-display" class="top-right-below">0</div>
             <div class="center">
                 <div id="result-container">
                     <p id="result"></p>

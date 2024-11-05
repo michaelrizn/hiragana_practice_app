@@ -1,3 +1,4 @@
+// script.js
 let currentSymbol;
 let symbolQueue = [];
 let correctCount = 0;
@@ -19,19 +20,27 @@ function initializeApp() {
     showMainPage();
   }
 
+  // Обработчики для кнопок справки на главной странице
   document
     .getElementById("hiragana-help-button")
     .addEventListener("click", () => showAlphabet(hiragana));
   document
     .getElementById("katakana-help-button")
     .addEventListener("click", () => showAlphabet(katakana));
+  document
+    .getElementById("hiraganaandkatakana-help-button")
+    .addEventListener("click", () => showAlphabet(hiraganaAndKatakana)); // Обработчик для новой справки
 
+  // Обработчики для кнопок справки на странице игры
   document
     .getElementById("hiragana-button-game")
     .addEventListener("click", () => showAlphabet(hiragana));
   document
     .getElementById("katakana-button-game")
     .addEventListener("click", () => showAlphabet(katakana));
+  document
+    .getElementById("hiraganaandkatakana-button-game")
+    .addEventListener("click", () => showAlphabet(hiraganaAndKatakana)); // Обработчик для новой справки
 
   document.getElementById("reload-button").addEventListener("click", reloadApp);
   document
@@ -93,7 +102,10 @@ function getRandomOptions(count) {
   while (options.length < count) {
     let option =
       currentAlphabet[Math.floor(Math.random() * currentAlphabet.length)];
-    if (option !== currentSymbol && !options.includes(option)) {
+    if (
+      option !== currentSymbol &&
+      !options.some((opt) => opt.english === option.english)
+    ) {
       options.push(option);
     }
   }
